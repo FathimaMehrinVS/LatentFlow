@@ -491,11 +491,13 @@ const PageAbout = {
           <div class="accent-line" style="margin:.5rem auto 1rem;"></div>
           <h2 class="section-title">The Team</h2>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.25rem;max-width:900px;margin:0 auto;">
-          <div class="team-card card-anim"><div class="avatar">MK</div><div class="team-name">Maya Khan</div><div class="team-role">CEO & Co-founder</div><div class="team-bio">Former Netflix ML engineer. Cannes jury member. Believes every film tells a truth.</div></div>
-          <div class="team-card card-anim"><div class="avatar">JR</div><div class="team-name">James Rho</div><div class="team-role">CTO & Co-founder</div><div class="team-bio">Built recommendation systems at Spotify. Watches 200+ films a year.</div></div>
-          <div class="team-card card-anim"><div class="avatar">AL</div><div class="team-name">Amara Levi</div><div class="team-role">Head of Design</div><div class="team-bio">Obsessed with the intersection of cinema and UX. Ex-Figma, ex-Apple HIG team.</div></div>
-          <div class="team-card card-anim"><div class="avatar">TP</div><div class="team-name">Tom Park</div><div class="team-role">Lead ML Engineer</div><div class="team-bio">PhD in NLP from MIT. Built the emotion-detection layer that powers mood matching.</div></div>
+        <div style="display:flex;justify-content:center;">
+          <div class="team-card card-anim" style="max-width:320px;width:100%;">
+            <div class="avatar">FM</div>
+            <div class="team-name">Fathima Mehrin VS</div>
+            <div class="team-role">Developer</div>
+            <div class="team-bio">The mind and hands behind LatentFlow — designing, building, and shipping every pixel of this experience.</div>
+          </div>
         </div>
       </div>
     </section>
