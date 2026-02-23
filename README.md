@@ -22,18 +22,12 @@ The current version showcases a responsive and visually engaging UI prototype bu
 - Smooth hover animations
 - Clean and intuitive layout
 
-## 🧠 Future Improvements
-- Backend integration with trained ML models
-- Real-time API-based recommendation engine
-- User login & personalization
-- Rating-based adaptive learning
-
 ## 🛠 Tech Stack
 - HTML5
 - Tailwind CSS
 - JavaScript
-- Machine Learning (Planned Integration)
+- Machine Learning 
 
 ---
 
-Designed as part of an academic project presentation to demonstrate AI-driven recommendation systems.
+Designed to demonstrate AI-driven recommendation systems.
