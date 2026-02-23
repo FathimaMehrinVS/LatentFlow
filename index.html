@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LatentFlow – AI Movie Recommendations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="mesh-bg"></div>
+
+<!-- ═══ STICKY NAV ═══ -->
+<nav class="relative-z">
+  <div class="nav-inner">
+    <!-- Logo -->
+    <div class="nav-logo" onclick="Router.navigate('home')" style="cursor:pointer;">
+      <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
+        <rect width="28" height="28" rx="7" fill="#e63946"/>
+        <path d="M7 14C7 10.134 10.134 7 14 7s7 3.134 7 7-3.134 7-7 7-7-3.134-7-7z" fill="none" stroke="#fff" stroke-width="2"/>
+        <path d="M12 11.5l5 2.5-5 2.5V11.5z" fill="#fff"/>
+      </svg>
+      <span class="nav-logo-text">LATENTFLOW</span>
+    </div>
+
+    <!-- Links -->
+    <ul class="nav-links">
+      <li><a data-page="home"      onclick="Router.navigate('home');return false;"      href="#">Home</a></li>
+      <li><a data-page="movies"    onclick="Router.navigate('movies');return false;"    href="#">Movies</a></li>
+      <li><a data-page="search"    onclick="Router.navigate('search');return false;"    href="#">Search</a></li>
+      <li>
+        <a data-page="watchlist" onclick="Router.navigate('watchlist');return false;" href="#">
+          Watchlist
+          <span class="nav-wl-count" id="wl-badge" style="display:none;">0</span>
+        </a>
+      </li>
+      <li><a data-page="about"     onclick="Router.navigate('about');return false;"     href="#">About</a></li>
+    </ul>
+
+    <!-- Sign in -->
+    <button class="nav-signin">Sign In</button>
+
+    <!-- Mobile hamburger -->
+    <button style="display:none;background:none;border:none;color:#6b7280;cursor:pointer;" id="hamburger" onclick="toggleMobileMenu()">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" style="display:none;border-top:1px solid var(--border);padding:1rem 1.5rem;background:rgba(8,10,15,.95);backdrop-filter:blur(20px);">
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+      <a style="color:#9ca3af;text-decoration:none;font-size:.95rem;" onclick="Router.navigate('home');toggleMobileMenu();return false;" href="#">Home</a>
+      <a style="color:#9ca3af;text-decoration:none;font-size:.95rem;" onclick="Router.navigate('movies');toggleMobileMenu();return false;" href="#">Movies</a>
+      <a style="color:#9ca3af;text-decoration:none;font-size:.95rem;" onclick="Router.navigate('search');toggleMobileMenu();return false;" href="#">Search</a>
+      <a style="color:#9ca3af;text-decoration:none;font-size:.95rem;" onclick="Router.navigate('watchlist');toggleMobileMenu();return false;" href="#">Watchlist</a>
+      <a style="color:#9ca3af;text-decoration:none;font-size:.95rem;" onclick="Router.navigate('about');toggleMobileMenu();return false;" href="#">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ PAGE VIEW ═══ -->
+<div id="app-view" class="relative-z"></div>
+
+<!-- ═══ FOOTER (always visible) ═══ -->
+<footer class="relative-z">
+  <div class="footer-inner">
+    <div style="display:flex;align-items:center;gap:8px;cursor:pointer;" onclick="Router.navigate('home')">
+      <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+        <rect width="28" height="28" rx="7" fill="#e63946"/>
+        <path d="M7 14C7 10.134 10.134 7 14 7s7 3.134 7 7-3.134 7-7 7-7-3.134-7-7z" fill="none" stroke="#fff" stroke-width="2"/>
+        <path d="M12 11.5l5 2.5-5 2.5V11.5z" fill="#fff"/>
+      </svg>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.15em;color:#fff;">LATENTFLOW</span>
+    </div>
+    <p class="footer-copy">© 2025 LatentFlow. Built for cinema lovers.</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">API</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script src="data.js"></script>
+<script src="pages.js"></script>
+<script src="router.js"></script>
+<script>
+  // Responsive hamburger show/hide
+  function toggleMobileMenu() {
+    const m = document.getElementById('mobileMenu');
+    m.style.display = m.style.display === 'none' ? 'block' : 'none';
+  }
+  function checkMobile() {
+    const hb = document.getElementById('hamburger');
+    hb.style.display = window.innerWidth < 768 ? 'block' : 'none';
+  }
+  window.addEventListener('resize', checkMobile);
+  checkMobile();
+
+  // Boot the router
+  Router.init();
+</script>
+</body>
+</html>
